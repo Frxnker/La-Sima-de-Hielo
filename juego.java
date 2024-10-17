@@ -20,6 +20,7 @@ public class juego {
     }
 
     // Métodos setters
+
     void setT(int tamaño) {
         t = tamaño;
     }
@@ -49,20 +50,24 @@ public class juego {
     }
 
     // Métodos getters
+    // El tamaño será un número aleatorio entre 1 y 5
     public int getTamaño() {
         t = (int)(Math.random() * 5) + 1; // El tamaño será un número aleatorio entre 1 y 5
         return t;
     }
 
+    // La vida ya está definida como 50 en el constructor
     public int getVida() {
-        return v; // La vida ya está definida como 50 en el constructor
+        return v;
     }
 
+    // El dado será un número aleatorio entre 1 y 6
     public int getDado() {
-        d = (int)(Math.random() * 6) + 1; // El dado será un número aleatorio entre 1 y 6
+        d = (int)(Math.random() * 6) + 1; 
         return d;
     }
 
+    // Método para obtener los puntos
     public int getPuntos() {
         switch (t) {
             case 1:
@@ -84,14 +89,24 @@ public class juego {
         return p;
     }
 
+    // Método para obtener la dirección
     public char getDireccion() {
+        if (d == 1) {
+            D = 'N';
+        } else if (d == 2) {
+            D = 'S';
+        } else if (d == 3) {
+            D = 'E';
+        } else if (d == 4) {
+            D = 'O';
+        }
         return D;
     }
-
+    // Método para obtener la elección
     public char getEleccion() {
         return e;
     }
-
+    // Método para obtener el número de pingüinos eliminados
     public int getPinguinos() {
         return P;
     }
