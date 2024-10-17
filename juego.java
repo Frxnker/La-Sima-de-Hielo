@@ -21,38 +21,38 @@ public class juego {
 
     // Métodos setters
 
-    void setT(int tamaño) {
+    public void setT(int tamaño) {
         t = tamaño;
     }
 
-    void setV(int vida) {
+    public void setV(int vida) {
         v = vida;
     }
 
-    void setD(int dado) {
+    public void setD(int dado) {
         d = dado;
     }
 
-    void setP(int puntos) {
+    public void setP(int puntos) {
         p = puntos;
     }
 
-    void setDireccion(char direccion) {
+    public void setDireccion(char direccion) {
         D = direccion;
     }
 
-    void setEleccion(char eleccion) {
+    public void setEleccion(char eleccion) {
         e = eleccion;
     }
 
-    void setPinguinos(int pinguinos) {
+    public void setPinguinos(int pinguinos) {
         P = pinguinos;
     }
 
     // Métodos getters
     // El tamaño será un número aleatorio entre 1 y 5
     public int getTamaño() {
-        t = (int)(Math.random() * 5) + 1; // El tamaño será un número aleatorio entre 1 y 5
+        t = (int)(Math.random() * 5) + 1;
         return t;
     }
 
@@ -91,21 +91,14 @@ public class juego {
 
     // Método para obtener la dirección
     public char getDireccion() {
-        if (d == 1) {
-            D = 'N';
-        } else if (d == 2) {
-            D = 'S';
-        } else if (d == 3) {
-            D = 'E';
-        } else if (d == 4) {
-            D = 'O';
-        }
         return D;
     }
+
     // Método para obtener la elección
     public char getEleccion() {
         return e;
     }
+    
     // Método para obtener el número de pingüinos eliminados
     public int getPinguinos() {
         return P;

@@ -7,22 +7,42 @@ public class SimaPrueba {
 
         juego j = new juego();
 
-        char direccion = 'S'; // Damos el valor N para que empiece desde el Norte
+        char direccion = ' '; // Damos el valor N para que empiece desde el Norte
         char eleccion;
 
         // Presentación del juego
-        System.out.println("************************************************");
-        System.out.println("*                                              *");
-        System.out.println("*      ¡Bienvenido a 'LA SIMA DE HIELO'!       *");
-        System.out.println("*                                              *");
-        System.out.println("************************************************");
-        System.out.println("*                                              *");
-        System.out.println("*    Un mundo helado y peligroso te espera.    *");
-        System.out.println("*    ¡Prepárate para enfrentar los desafíos    *");
-        System.out.println("*    de los oscuros pasadizos y los feroces    *");
-        System.out.println("*    pingüinos mutantes!                       *");
-        System.out.println("*                                              *");
-        System.out.println("************************************************");
+        System.out.println("*************************************************");
+        System.out.println("*                                               *");
+        System.out.println("*       ¡Bienvenido a 'LA SIMA DE HIELO'!       *");
+        System.out.println("*                                               *");
+        System.out.println("*************************************************");
+        System.out.println("*                                               *");
+        System.out.println("*     Un mundo helado y peligroso te espera.    *");
+        System.out.println("*     ¡Prepárate para enfrentar los desafíos    *");
+        System.out.println("*     de los oscuros pasadizos y los feroces    *");
+        System.out.println("*     pingüinos mutantes!                       *");
+        System.out.println("*                                               *");
+        System.out.println("*************************************************");
+        System.out.println("*                                               *");
+        System.out.println("*               Reglas del Juego                *");
+        System.out.println("*                                               *");
+        System.out.println("*  1. Si huyes: Se te restará un punto de vida. *");
+        System.out.println("*  2. Si luchas: Se tirará un dado de 6 caras.  *");
+        System.out.println("*      - XS: Vence con 2, 3, 4, 5 o 6.          *");
+        System.out.println("*      - S: Vence con 3, 4, 5 o 6.              *");
+        System.out.println("*      - M: Vence con 4, 5 o 6.                 *");
+        System.out.println("*      - L: Vence con 5 o 6.                    *");
+        System.out.println("*      - XL: Solo se vence con 6.               *");
+        System.out.println("*  3. Si el explorador vence, gana puntos de    *");
+        System.out.println("*     vida dependiendo del tamaño del pingüino. *");
+        System.out.println("*     - XS: Entre 1 y 10 puntos (al azar).      *");
+        System.out.println("*     - S: Entre 10 y 20 puntos (al azar).      *");
+        System.out.println("*     - M: Entre 20 y 30 puntos (al azar).      *");
+        System.out.println("*     - L: Entre 30 y 40 puntos (al azar).      *");
+        System.out.println("*     - XL: Entre 40 y 50 puntos (al azar).     *");
+        System.out.println("*                                               *");
+        System.out.println("*************************************************");
+        
 
         // Bucle "while" mientras el jugador tenga vida y no haya eliminado a los 5 pingüinos
         while ((j.getVida() > 0 && (j.getPinguinos() < 5))) {
@@ -32,47 +52,46 @@ public class SimaPrueba {
 
             // Obtener la dirección
             do {
-                if (direccion == 'S') {
-                    System.out.println("¿Qué dirección tomarás? ('S = Sur' 'E = Este' 'O = Oeste')");
-                    direccion = sc.nextLine().charAt(0);  // Guardamos la dirección en una variable
-                    j.setDireccion(direccion); // Guardamos la dirección en la clase
+                if (direccion == ' ') {
+                    do {
+                        System.out.println("¿Qué dirección tomarás? ('S = Sur' 'E = Este' 'O = Oeste')");
+                        direccion = sc.nextLine().charAt(0);  // Guardamos la dirección en una variable
+                        System.out.println("Te diriges al Norte.\n");
+                    } while (direccion != 'S' && direccion != 'E' && direccion != 'O');
+                } else if (direccion == 'S') {
+                    do {
+                        System.out.println("¿Qué dirección tomarás? ('S = Sur' 'E = Este' 'O = Oeste')");
+                        direccion = sc.nextLine().charAt(0);  // Guardamos la dirección en una variable
+                        System.out.println("Te diriges al Sur.\n");
+                    } while (direccion != 'S' && direccion != 'E' && direccion != 'O');
                 } else if (direccion == 'E') {
-                    System.out.println("¿Qué dirección tomarás? ('N = Norte' 'S = Sur' 'E = Este')");
-                    direccion = sc.nextLine().charAt(0);  // Guardamos la dirección en una variable
-                    j.setDireccion(direccion); // Guardamos la dirección en la clase
+                    do {
+                        System.out.println("¿Qué dirección tomarás? ('N = Norte' 'S = Sur' 'E = Este')");
+                        direccion = sc.nextLine().charAt(0);  // Guardamos la dirección en una variable
+                        System.out.println("Te diriges al Este.\n");
+                    } while (direccion != 'S' && direccion != 'E' && direccion != 'N');
                 } else if (direccion == 'O') {
-                    System.out.println("¿Qué dirección tomarás? ('N = Norte' 'S = Sur' 'O = Oeste')");
-                    direccion = sc.nextLine().charAt(0);  // Guardamos la dirección en una variable
-                    j.setDireccion(direccion); // Guardamos la dirección en la clase
+                    do {
+                        System.out.println("¿Qué dirección tomarás? ('N = Norte' 'S = Sur' 'O = Oeste')");
+                        direccion = sc.nextLine().charAt(0);  // Guardamos la dirección en una variable
+                        System.out.println("Te diriges al Oeste.\n");
+                    } while (direccion != 'S' && direccion != 'O' && direccion != 'N');
                 } else if (direccion == 'N') {
-                    System.out.println("¿Qué dirección tomarás? ('N = Norte' 'E = Este' 'O = Oeste')");
-                    direccion = sc.nextLine().charAt(0);  // Guardamos la dirección en una variable
-                    j.setDireccion(direccion); // Guardamos la dirección en la clase
+                    do {
+                        System.out.println("¿Qué dirección tomarás? ('S = Sur' 'E = Este' 'O = Oeste')");
+                        direccion = sc.nextLine().charAt(0);  // Guardamos la dirección en una variable
+                        System.out.println("Te diriges al Norte.\n");
+                    } while (direccion != 'S' && direccion != 'E' && direccion != 'O');
                 } else {
-                    System.out.println("Error. Dirección no válida.");
+                    System.out.println("Dirección no válida.");
                 }
+
+                j.setDireccion(direccion); // Guardamos la dirección en la clase
+
             } while (direccion != 'S' && direccion != 'E' && direccion != 'O' && direccion != 'N');
 
-            // Mostrar la dirección
-            switch (j.getDireccion()) {
-                case 'N':
-                    System.out.println("Te diriges al Norte.\n");
-                    break;
-                case 'S':
-                    System.out.println("Te diriges al Sur.\n");
-                    break;
-                case 'E':
-                    System.out.println("Te diriges al Este.\n");
-                    break;
-                case 'O':
-                    System.out.println("Te diriges al Oeste.\n");
-                    break;
-                default:
-                    System.out.println("Dirección no válida.\n");
-                    break;
-            }
-
             // Generar el tamaño del pingüino
+            int tamaño = j.getTamaño();
             switch (j.getTamaño()) {
                 case 1:
                     System.out.println("Ha aparecido un pingüino de tamaño: XS");
@@ -121,7 +140,7 @@ public class SimaPrueba {
                     int dado = j.getDado(); // Tirar el dado
                     System.out.println("Tiraste un dado y obtuviste un: " + dado);
                     // Si el número del dado es mayor que el tamaño del pingüino, ganas
-                    if (dado > j.getTamaño()) {
+                    if (dado > tamaño) {
                         System.out.println("¡Has derrotado al pingüino!");
                         int p = j.getPuntos(); // Obtener los puntos
                         System.out.println("Has ganado " + p + " puntos de vida.");
