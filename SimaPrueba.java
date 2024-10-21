@@ -7,7 +7,7 @@ public class SimaPrueba {
 
         juego j = new juego();
 
-        char direccion = ' '; // Damos el valor N para que empiece desde el Norte
+        char direccion = ' ';
         char eleccion;
 
         // Presentación del juego
